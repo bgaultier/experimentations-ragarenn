@@ -13,12 +13,12 @@ Ce dépôt rassemble scripts, notebooks et autres ressources montrant les possib
 - [Scripts](scripts/) : Scripts shell pour s'interfacer avec l'API REST de RAGaRenn.
 - [Démonstrations](demos/) :
   - [Support aux utilisateur·trices](demos/support_gradio_agent.py) : Un robot conversationnel de support informatique qui dispose de connaissances issues d'un intranet et d'un catalogue de services.
-  ![Capture d'écran support informatique](screenshots/Support informatique.png)
+  ![Capture d'écran support informatique](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Support%20informatique.png)
   - [Saisie de devis](demos/quotes_agent.py) : Un agent qui fait de la saisie de devis.
-  ![Capture d'écran outil de gestion de devis](screenshots/Gestion de devis.png)
+  ![Capture d'écran outil de gestion de devis](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Gestion%20des%20devis.png)
   - [Assistant pédagogique MOOC](notebooks/chatbot.ipynb) : Un agent qui répond aux questions aux apprenant·es d'un cours en ligne avec l'aide d'humain·es.
-  ![Capture d'écran assistant pédagogique MOOC](screenshots/Assistant pédagogique MOOC.png)
-  - Des agents basé sur smolagents (à venir 🙂)...****
+  ![Capture d'écran assistant pédagogique MOOC](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Assistant%20p%C3%A9dagogique%20MOOC.png)
+  - Des agents basés sur [smolagents](https://huggingface.co/learn/agents-course/fr/unit2/smolagents/introduction) (à venir 🙂)...
 
 ## Liens
 - Site RAGaRenn : https://ragarenn.eskemm-numerique.fr
