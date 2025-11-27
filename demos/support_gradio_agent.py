@@ -1,3 +1,6 @@
 import gradio as gr
+import os
 
-gr.load_chat("https://ragarenn.eskemm-numerique.fr/sso/instance@imt/api/", model="support-disi", token="sk-9ee9eabc6dd942488dc661851dd4fbfb").launch(pwa=True, share=True)
+RAGARENN_IMT_API_KEY = os.environ["RAGARENN_IMT_API_KEY"]
+
+gr.load_chat("https://ragarenn.eskemm-numerique.fr/sso/instance@imt/api/", model="support-disi", token=RAGARENN_IMT_API_KEY).launch(pwa=True, share=True)
