@@ -1,0 +1,65 @@
+diff --git a/zsh-copilot.plugin.zsh b/zsh-copilot.plugin.zsh
+index 867f60a..9db6721 100644
+--- a/zsh-copilot.plugin.zsh
++++ b/zsh-copilot.plugin.zsh
+@@ -6,7 +6,7 @@
+ 
+ # Configuration options
+ (( ! ${+ZSH_COPILOT_SEND_CONTEXT} )) &&
+-    typeset -g ZSH_COPILOT_SEND_CONTEXT=true
++    typeset -g ZSH_COPILOT_SEND_CONTEXT=false
+ 
+ (( ! ${+ZSH_COPILOT_DEBUG} )) &&
+     typeset -g ZSH_COPILOT_DEBUG=false
+@@ -64,7 +64,7 @@ function _fetch_suggestions() {
+     if [[ "$ZSH_COPILOT_AI_PROVIDER" == "openai" ]]; then
+         # OpenAI's API payload
+         data="{
+-            \"model\": \"gpt-4o-mini\",
++            \"model\": \"qwen2.5vl:7b\",
+             \"messages\": [
+                 {
+                     \"role\": \"system\",
+@@ -76,10 +76,10 @@ function _fetch_suggestions() {
+                 }
+             ]
+         }"
+-        response=$(curl "https://${openai_api_url}/v1/chat/completions" \
++        response=$(curl "https://ragarenn.eskemm-numerique.fr/sso/instance@imt/api/chat/completions" \
+             --silent \
+             -H "Content-Type: application/json" \
+-            -H "Authorization: Bearer $OPENAI_API_KEY" \
++            -H "Authorization: Bearer $RAGARENN_IMT_API_KEY" \
+             -d "$data")
+         response_code=$?
+ 
+@@ -226,15 +226,21 @@ function _suggest_ai() {
+ 
+     ##### And now, let's actually show the suggestion to the user!
+ 
+-    if [[ "$first_char" == '=' ]]; then
+-        # Reset user input
+-        BUFFER=""
+-        CURSOR=0
++    # Reset user input
++    BUFFER=""
++    CURSOR=0
+ 
+-        zle -U "$suggestion"
+-    elif [[ "$first_char" == '+' ]]; then
+-        _zsh_autosuggest_suggest "$suggestion"
+-    fi
++    zle -U "$suggestion"
++
++    # if [[ "$first_char" == '=' ]]; then
++    #     # Reset user input
++    #     BUFFER=""
++    #     CURSOR=0
++
++    #     zle -U "$suggestion"
++    # elif [[ "$first_char" == '+' ]]; then
++    #     _zsh_autosuggest_suggest "$suggestion"
++    # fi
+ }
+ 
+ function zsh-copilot() {
