@@ -18,7 +18,12 @@ Ce dépôt rassemble scripts, notebooks et autres ressources montrant les possib
   ![Capture d'écran outil de gestion de devis](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Gestion%20des%20devis.png)
   - [Assistant pédagogique MOOC](notebooks/chatbot.ipynb) : Un agent qui répond aux questions aux apprenant·es d'un cours en ligne avec l'aide d'humain·es.
   ![Capture d'écran assistant pédagogique MOOC](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Assistant%20p%C3%A9dagogique%20MOOC.png)
-  - Des agents basés sur [smolagents](https://huggingface.co/learn/agents-course/fr/unit2/smolagents/introduction) (à venir 🙂)...
+  - [Agent connecté à un navigateur web](demos/mcp_browser_agent.py) : Un agent qui peut faire des recherches, écrire du code, prendre la main d'un navigateur web...
+  ![Capture d'écran agent connecté à un navigateur web](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Agent%20connect%C3%A9%20%C3%A0%20un%20navigateur.png)
+  - [Assistant commandes dans le terminal](demos/zsh-copilot/zsh-copilot.plugin.zsh) : Un assistant qui fournit des suggestions de commandes dans le terminal.
+  - [Robot conversationnel vocal](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Robot%20conversationnel%20vocal.jpg) Un agent qui peut répondre à des questions posées à voix haute.
+  ![Capture d'écran robot conversationnel vocal](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Robot%20conversationnel%20vocal.jpg)
+  - D'autres agents basés sur [smolagents](https://huggingface.co/learn/agents-course/fr/unit2/smolagents/introduction) (à venir 🙂)...
 
 ## Liens
 - Site RAGaRenn : https://ragarenn.eskemm-numerique.fr
