@@ -1,0 +1,42 @@
+{
+  "models": {
+    "providers": {
+      "RAGaRenn": {
+        "baseUrl": "https://ragarenn.eskemm-numerique.fr/sso/instance@imt/api",
+        "apiKey": "<your_apikey>",
+        "auth": "api-key",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "gpt-oss",
+            "name": "gpt-oss",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "RAGaRenn/gpt-oss"
+      },
+      "models": {
+        "RAGaRenn/gpt-oss": {}
+      },
+      [...]
+    }
+  }
+}
