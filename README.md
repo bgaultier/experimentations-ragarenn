@@ -28,7 +28,10 @@ Ce dépôt rassemble scripts, notebooks et autres ressources montrant les possib
   <img alt="Capture d'écran client MCP CalDAV" src="https://raw.githubusercontent.com/bgaultier/caldav-mcp-server/refs/heads/master/capture_continue.png" width="600" />
 
   -  [Serveur MCP IMAP](https://github.com/bgaultier/imap-mcp-server) : Un serveur MCP qui permet à un agent de lire vos emails et de rédiger des brouillons.
-  <img alt="Capture d'écran MCP IMAP" src="https://raw.githubusercontent.com/bgaultier/imap-mcp-server/refs/heads/master/capture_continue.png" width="600" />
+  <img alt="Capture d'écran MCP IMAP" src="https://raw.githubusercontent.com/bgaultier/imap-mcp-server/refs/heads/master/capture_continue.png" width="280" />
+
+  -  [Tri et classification d'emails avec n8n](demos/n8n%20-%20Tri%20et%20classification%20des%20emails.json) : Automatisation n8n permettant de trier, classifier et répondre à des emails.
+  <img alt="Capture d'écran n8n" src="https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Tri%20et%20classification%20des%20emails%20avec%20n8n.png" width="600" />
   
   - [Assistant commandes dans le terminal](demos/zsh-copilot/zsh-copilot.plugin.zsh) : Un assistant qui fournit des suggestions de commandes dans le terminal.
   - [Robot conversationnel vocal](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Robot%20conversationnel%20vocal.jpg) Un agent qui peut répondre à des questions posées à voix haute.
