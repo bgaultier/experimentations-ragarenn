@@ -33,7 +33,7 @@ Ce dépôt rassemble scripts, notebooks et autres ressources montrant les possib
   -  [Tri et classification d'emails avec n8n](demos/n8n%20-%20Tri%20et%20classification%20des%20emails.json) : Automatisation n8n permettant de trier, classifier et répondre à des emails.
   <img alt="Capture d'écran n8n" src="https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Tri%20et%20classification%20des%20emails%20avec%20n8n.png" width="600" />
 
-  -  [Super assistant IA personnel et autonome OpenClaw](demos/n8n%20-%20Tri%20et%20classification%20des%20emails.json) : Agent IA local capable d'automatiser vos tâches quotidiennes (gestion d'emails, calendrier, navigation web) via Mattermost, WhatsApp, Telegram, Matrix...
+  -  [Super assistant IA personnel et autonome OpenClaw](demos/openclaw.json) : Agent IA local capable d'automatiser vos tâches quotidiennes (gestion d'emails, calendrier, navigation web) via Mattermost, WhatsApp, Telegram, Matrix...
   <img alt="Capture d'écran OpenClaw" src="[https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Tri%20et%20classification%20des%20emails%20avec%20n8n.png](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Agent%20OpenClaw%20avec%20un%20bot%20mattermost.png)" width="600" />
   
   - [Assistant commandes dans le terminal](demos/zsh-copilot/zsh-copilot.plugin.zsh) : Un assistant qui fournit des suggestions de commandes dans le terminal.
