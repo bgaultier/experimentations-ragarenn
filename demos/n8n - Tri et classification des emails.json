@@ -1,0 +1,264 @@
+{
+  "name": "Tri et classification des emails",
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+          "mode": "list",
+          "cachedResultName": "mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -64,
+        1360
+      ],
+      "id": "20438eda-3c0e-455e-ad84-1ab1fd662e19",
+      "name": "RAGaRenn Mistral Small",
+      "credentials": {
+        "openAiApi": {
+          "id": "QpMitdhA61H1Zo36",
+          "name": "RAGaRenn"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Réponds à cet email positivement en indiquant que tu es l'assistant IA de Baptiste qui t'a demandé de traiter ses emails car il n'y arrive pas. Tu devras répondre dans le ton et la langue utilisée par l'expéditeur.\nJe ne souhaite recevoir que la réponse, rien d'autre ! \n\n\nVoici le message auquel tu dois répondre :\nObjet : {{ $json.subject }}\nCorps : \n{{ $json.textPlain }}\n",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        96,
+        784
+      ],
+      "id": "06528cfb-ea6c-42f2-ae23-6b709c2900eb",
+      "name": "Répondre"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -720,
+        928
+      ],
+      "id": "8037f5d7-c6c7-49c5-907c-3cd4de7f6ce8",
+      "name": "Relever le courrier",
+      "credentials": {
+        "imap": {
+          "id": "UIbI3dWAe35Gkz8V",
+          "name": "IMAP account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "=Objet : {{ $json.subject }}\nDestinataire : {{ $json.to }}\nCorps : \n{{ $json.textPlain }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "Urgent",
+              "description": "Un email qui doit obtenir une réponse sous peu"
+            },
+            {
+              "category": "Information",
+              "description": "Un email qui doit être résumé et marqué comme lu"
+            },
+            {
+              "category": "Spam",
+              "description": "Un email qui doit être supprimé"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1.1,
+      "position": [
+        -416,
+        912
+      ],
+      "id": "3c13821e-ffe5-45b3-8df6-93ebef86b4c0",
+      "name": "Classifier"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "okAyachyaUrKgyL2",
+          "mode": "list",
+          "cachedResultName": "emails",
+          "cachedResultUrl": "/projects/TRNG1KN2A8flalh1/datatables/okAyachyaUrKgyL2"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "answer": "={{ $('Répondre').item.json.text }}",
+            "summary": "={{ $json.text }}",
+            "from": "={{ $('Relever le courrier').item.json.from }}"
+          },
+          "matchingColumns": [
+            "text"
+          ],
+          "schema": [
+            {
+              "id": "answer",
+              "displayName": "answer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "from",
+              "displayName": "from",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        848,
+        944
+      ],
+      "id": "87102555-ffad-4afd-87ac-9bba28d39577",
+      "name": "Insert row"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Peux-tu résumer le message suivant :\nObjet : {{ $('Relever le courrier').item.json.subject }}\nCorps : {{ $('Relever le courrier').item.json.textPlain }}\n",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        464,
+        1040
+      ],
+      "id": "73cce85f-77cf-4c5f-ba88-1c2f52c4e5e4",
+      "name": "Résumer"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "RAGaRenn Mistral Small": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Répondre",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Résumer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Relever le courrier": {
+      "main": [
+        [
+          {
+            "node": "Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classifier": {
+      "main": [
+        [
+          {
+            "node": "Répondre",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Résumer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Répondre": {
+      "main": [
+        [
+          {
+            "node": "Résumer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Résumer": {
+      "main": [
+        [
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "timezone": "Europe/Paris",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "08ffabbd-c46d-4ac6-9994-8116d3003c1c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2fdcc8b4b84e59362356148733088832595818d76b4ddb869b8ac395700d1890"
+  },
+  "id": "JpBU3uzEXzjeUJja",
+  "tags": []
+}
