@@ -25,7 +25,7 @@ Ce dépôt rassemble scripts, notebooks et autres ressources montrant les possib
   <img alt="Capture d'écran agent connecté à un navigateur web" src="https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Agent%20connect%C3%A9%20%C3%A0%20un%20navigateur.png" width="600" />
   
   -  [Serveur MCP CalDAV](https://github.com/bgaultier/caldav-mcp-server/) : Un serveur MCP qui permet à un agent de gérer vos calendriers.
-  <img alt="Capture d'écran client MCP CalDAV" src="https://raw.githubusercontent.com/bgaultier/caldav-mcp-server/refs/heads/master/capture_continue.png" width="600" />
+  <img alt="Capture d'écran client MCP CalDAV" src="https://raw.githubusercontent.com/bgaultier/caldav-mcp-server/refs/heads/master/capture_continue.png" width="400" />
 
   -  [Serveur MCP IMAP](https://github.com/bgaultier/imap-mcp-server) : Un serveur MCP qui permet à un agent de lire vos emails et de rédiger des brouillons.
   <img alt="Capture d'écran MCP IMAP" src="https://raw.githubusercontent.com/bgaultier/imap-mcp-server/refs/heads/master/capture_continue.png" width="280" />
