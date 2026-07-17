@@ -1,0 +1,13 @@
+# Dépendances pour l'Assistant Email Agentique
+
+# Gradio 6
+gradio>=6.0.0
+
+# smolagents
+smolagents>=1.0.0
+
+# OpenAI SDK pour la connexion au modèle ILaaS
+openai>=1.0.0
+
+# Gestion des variables d'environnement
+python-dotenv>=1.0.0
