@@ -198,5 +198,8 @@ if __name__ == "__main__":
         auth=verify_credentials,
         auth_message="⚠️ Ce service est développé par Baptiste avec de l'intelligence artificielle, il y a donc très peu de chance qu'il fonctionne ! Si vous voulez le tester néanmoins, merci d'indiquer vos identifiants z.imt.fr (adresse email et mot de passe école) :",
         theme=gr.themes.Base(primary_hue=gr.themes.colors.cyan),
+        share=False,
+        debug=False,                  # ⚠️ False en prod : évite de logger le contenu des emails
+        pwa=True
         footer_links=["api", "gradio", "settings", {"💬 Contact", "mailto:baptiste.gaultier@imt-atlantique.fr"},]
     )
