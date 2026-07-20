@@ -28,33 +28,22 @@ Interface Gradio 6 + smolagents permettant de manipuler vos emails, calendriers 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Interface Utilisateur                      │
-│                    (Gradio 6 - ChatInterface)                │
+│                    Interface Utilisateur                    │
+│                    (Gradio 6 - ChatInterface)               │
 └──────────────────────────┬──────────────────────────────────┘
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Agent smolagents                          │
-│         (CodeAgent avec outils IMAP + CalDAV)                │
+│                    Agent smolagents                         │
+│         (CodeAgent avec outils IMAP + CalDAV)               │
 └──────────────────────────┬──────────────────────────────────┘
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    Modèle LLM (ILaaS)                        │
 │            (qwen-3.6-35b-instruct via API REST)              │
-└──────────────────────────┬──────────────────────────────────┘
-                           │
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Serveur IMAP (Zimbra)                     │
-│              (Connexion directe via imaplib)                 │
-└──────────────────────────┬──────────────────────────────────┘
-                           │
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Serveur CalDAV (Zimbra)                   │
-│              (Connexion via bibliothèque caldav)             │
-└─────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────┘
+                         
 ```
 
 ## Installation
@@ -67,7 +56,7 @@ Interface Gradio 6 + smolagents permettant de manipuler vos emails, calendriers 
 
 ### Configuration
 
-1. **Cloner le dépôt** (si applicable)
+1. **Cloner le dépôt**
 2. **Installer les dépendances** :
 
 ```bash
@@ -138,9 +127,7 @@ Vous pouvez interagir avec l'assistant en utilisant des commandes naturelles :
 ├── tools.py                # Outils IMAP et CalDAV (Tool implementations)
 ├── requirements.txt        # Dépendances Python
 ├── .env.example           # Exemple de configuration
-├── README.md              # Documentation
-└── imap-mcp-server/       # Serveur IMAP MCP (référencé)
-    └── app.py             # Implémentation des outils IMAP
+└── README.md              # Documentation
 ```
 
 ## Configuration avancée
@@ -183,22 +170,10 @@ L'agent utilise les outils suivants, définis dans [`tools.py`](tools.py) :
 | `create_task` | `CreateTaskTool` | Crée une tâche VTODO avec date d'échéance (paramètres: `calendar_name`, `summary`, `due_date`, `status`) |
 | `get_tasks` | `GetTasksTool` | Récupère les tâches avec filtrage (paramètres: `calendar_name`, `pending_only`) |
 
-### Options de lancement
-
-```bash
-# Avec partage public (pour test)
-python app.py --share
-
-# Port personnalisé
-GRADIO_SERVER_PORT=8080 python app.py
-
-# Accès réseau
-GRADIO_SERVER_HOST=0.0.0.0 python app.py
-```
 
 ## Sécurité
 
-- Les credentials IMAP/CalDAV sont stockés uniquement en RAM
+- Les credentials IMAP/CalDAV sont stockés uniquement en RAM (bien laissé Debug=False)
 - Ne jamais committer le fichier `.env`
 - L'application ne stocke aucun email ni donnée calendrier localement
 
@@ -215,7 +190,7 @@ GRADIO_SERVER_HOST=0.0.0.0 python app.py
    - Vérifier la connectivité au serveur IMAP
    - Vérifier le port SSL (généralement 993)
 4. **"Calendar not found"**
-   - Vérifier que le nom du calendrier correspond à un calendrier existant sur le serveur CalDAV
+   - Vérifier que le nom du calendrier correspond à un calendrier existant sur le serveur CalDAV (souvent 'Calendar' ou 'primary')
 5. **"Invalid date format"**
    - Utiliser le format ISO 8601 pour les dates (ex: `2026-07-20T14:30:00`)
 
