@@ -39,8 +39,10 @@ Ce dépôt rassemble scripts, notebooks et autres ressources montrant les possib
   - [Assistant commandes dans le terminal](demos/zsh-copilot/zsh-copilot.plugin.zsh) : Un assistant qui fournit des suggestions de commandes dans le terminal.
   - [Robot conversationnel vocal](https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Robot%20conversationnel%20vocal.jpg) Un agent qui peut répondre à des questions posées à voix haute.
   <img alt="Capture d'écran robot conversationnel vocal" src="https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Robot%20conversationnel%20vocal.jpg" width="280" />
+
   - [Agent IA Zimbra](demos/zimbra_smolagent) Un agent IA qui permet de manipuler vos emails, calendriers et tâches.
   <img alt="Capture d'écran zimbra smolagents" src="https://raw.githubusercontent.com/bgaultier/experimentations-ragarenn/refs/heads/main/screenshots/Zimbra%20smolagents.png" width="600" />
+
   - D'autres agents basés sur [smolagents](https://huggingface.co/learn/agents-course/fr/unit2/smolagents/introduction) (à venir 🙂)...
 
 ## Liens
